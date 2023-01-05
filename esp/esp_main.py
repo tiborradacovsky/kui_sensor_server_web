@@ -44,7 +44,7 @@ def send_http_post_request(temperature_value):
         'Content-type': 'application/json',
         'Accept': 'text/plain'
     }
-    response = urequests.post(url, data=json.dumps(data), headers=headers)
+    urequests.post(url, data=json.dumps(data), headers=headers)
 
     return "Sent"
 
