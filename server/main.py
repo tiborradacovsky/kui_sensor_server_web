@@ -1,7 +1,15 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import sensor_data
 
 app = Flask(__name__)
+
+
+@app.route('/room/<room_id>', methods=['GET'])
+def get_data_for_room_id(room_id):
+    print("GET reqeust for room_id: ", room_id)
+    odpoved = sensor_data.load_data_from_room(room_id)
+
+    return jsonify(odpoved), 200
 
 
 @app.route('/sensor', methods=['POST'])

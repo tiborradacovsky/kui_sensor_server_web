@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teplota</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: white;
+        }
+        #mesto {
+            font-weight: bold;
+            font-size:larger;
+        }
+        #teplota {
+            color: #00C2FF;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body>
+    <div id="datum">Dátum</div>
+    <div id="mesto">Košice</div>
+    <br>
+    <div id="teplota">
+        <span id="teplota_hodnota">Teplota</span>
+        <span>&#8451;</span>
+    </div>
+
+    <br>
+    <button onclick="do_refresh()">Aktualizuj</button>
+
+    <script>
+        function do_refresh() {
+            console.log("Kontaktujem server...");
+            document.getElementById("teplota_hodnota").innerHTML = "nova hodnota";
+            // ToDo
+
+        }
+    </script>
+
+</body>
+</html>

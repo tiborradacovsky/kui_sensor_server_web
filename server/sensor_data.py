@@ -3,6 +3,31 @@ import configparser
 
 SENSOR_DATA_FILENAME = "sensor_data.log"
 
+def load_data_from_room(room_id):
+    """
+    Funkcia vrati hodnotu teploty podla vstupu room_id
+    :param room_id: dict
+    :return: temp:dict
+    """
+    logfile = configparser.ConfigParser()
+    logfile.read(SENSOR_DATA_FILENAME)
+
+    room_data = {
+        "room_id": room_id
+    }
+
+    for single_room_id in logfile.sections():
+        # print(single_room_id)
+        if single_room_id == room_id:
+            # print("Nasiel som miestnost")
+            for sensor, value in logfile.items(single_room_id):
+                # print(sensor, value)
+                room_data[sensor] = value
+
+            break
+
+
+    return room_data
 
 def store_data_from_room(all_sensors_data):
 
