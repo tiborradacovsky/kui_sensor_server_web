@@ -32,11 +32,19 @@
     <button onclick="do_refresh()">Aktualizuj</button>
 
     <script>
+
+
         function do_refresh() {
             console.log("Kontaktujem server...");
-            document.getElementById("teplota_hodnota").innerHTML = "nova hodnota";
-            // ToDo
 
+            url = 'http://192.168.25.160/api5000';
+
+            fetch(url + '/room/100')
+            .then(response => response.json())
+            .then((room_data) => {
+              console.log(room_data);
+              document.getElementById("teplota_hodnota").innerHTML = room_data["temperature"];
+            });
         }
     </script>
 
